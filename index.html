@@ -1,110 +1,252 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>履歷 — 112036127</title>
-  <style>
-  :root{
-    --bg:#f8f7f4;
-    --text:#2e2e2e;
-    --muted:#7a7a7a;
-    --accent:#a68b6a;
-    --card:#ffffff;
-  }
-  *{box-sizing:border-box;font-family:"Noto Sans TC", "Hiragino Sans", "Microsoft JhengHei", sans-serif;}
-  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;}
-  .wrap{max-width:880px;margin:60px auto;padding:0 24px;}
-  .card{background:var(--card);border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,0.06);overflow:hidden;display:grid;grid-template-columns:260px 1fr;}
-  aside{background:#f1f0ed;padding:32px;display:flex;flex-direction:column;align-items:center;}
-  .avatar img{width:140px;height:140px;object-fit:cover;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-  .name{margin-top:18px;font-size:22px;font-weight:600;color:#3b3b3b;}
-  .role{font-size:14px;color:var(--muted);margin-top:4px;}
-  .info{margin-top:18px;font-size:14px;color:var(--muted);width:100%;}
-  .info div{margin-bottom:4px;}
-  .section-title{margin-top:24px;margin-bottom:8px;font-size:15px;color:var(--accent);border-bottom:1px solid rgba(0,0,0,0.08);padding-bottom:4px;width:100%;}
-  .skill{display:flex;flex-wrap:wrap;gap:6px;}
-  .chip{background:#eae7e1;padding:5px 10px;border-radius:12px;font-size:13px;color:#555;}
-  .main{padding:40px;}
-  h2{font-size:18px;font-weight:600;color:#3c3c3c;margin-top:0;border-left:4px solid var(--accent);padding-left:10px;}
-  p.lead{color:#555;margin-top:10px;font-size:15px;}
-  .block{margin-top:28px;}
-  .edu-item,.job-item{padding:14px 16px;background:#faf9f7;border-radius:12px;margin-top:10px;}
-  .muted{color:var(--muted);font-size:13px;}
-  .controls{display:flex;justify-content:flex-end;gap:10px;margin-bottom:18px;}
-  .btn{background:var(--accent);color:white;border:0;border-radius:8px;padding:8px 14px;font-size:14px;cursor:pointer;}
-  .btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
-  @media(max-width:760px){.card{grid-template-columns:1fr;}aside{flex-direction:row;align-items:center;justify-content:center;gap:20px;padding:20px;}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chen-An's Portfolio & Resume</title>
+    <style>
+     :root {
+        --bg-color: #fff9f5; /* 溫暖的草莓牛奶白 */
+        --card-bg: #ffffff;
+        --text-main: #5c4033; /* 溫柔的深巧克力色，比死黑更可愛 */
+        --text-muted: #8c7365;
+        --accent-color: #ffb7b2; /* 療癒的貓咪肉墊粉 */
+        --accent-secondary: #ffdac1; /* 軟萌的蜜桃奶油黃 */
+        --border-color: #ffd8cc;
+        --shadow: 0 8px 0px 0px #ffe5dd; /* 寶可夢風格的厚實扁平陰影 */
+    }
+
+    [data-theme="dark"] {
+        --bg-color: #2d221e; /* 濃郁黑巧克力 */
+        --card-bg: #3d2f2b;
+        --text-main: #fff0e6;
+        --text-muted: #d9c5b2;
+        --accent-color: #ff9aa2;
+        --accent-secondary: #e2f0cb; /* 抹茶綠 */
+        --border-color: #5c4540;
+        --shadow: 0 8px 0px 0px #1a1311;
+    }
+
+    body {
+        font-family: "Comic Sans MS", "Chalkboard SE", "Yu Gothic", "Microsoft JhengHei", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.8;
+        margin: 0;
+        padding: 50px 20px;
+        transition: all 0.4s ease;
+    }
+
+    .resume-container {
+        max-width: 750px; /* 縮小一點點，看起來更精緻凝聚 */
+        margin: 0 auto;
+    }
+
+    header {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 30px; /* 超圓滾滾的角 */
+        box-shadow: var(--shadow);
+        border: 3px solid var(--text-main); /* 粗黑邊框，很有漫畫感 */
+        position: relative;
+        margin-bottom: 35px;
+        background-image: radial-gradient(var(--accent-secondary) 15%, transparent 16%); /* 隱約的小點點背景 */
+        background-size: 16px 16px;
+    }
+
+    .theme-toggle {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        background: var(--accent-secondary);
+        border: 2px solid var(--text-main);
+        color: var(--text-main);
+        padding: 8px 18px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 0px 0px var(--text-main);
+        transition: all 0.1s ease;
+    }
+
+    .theme-toggle:hover {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0px 0px var(--text-main);
+    }
+
+    h1 {
+        margin: 0 0 10px 0;
+        font-size: 2.6rem;
+        font-weight: 900;
+        color: var(--text-main);
+        text-shadow: 2px 2px 0px var(--accent-color); /* 名字自帶粉嫩陰影 */
+    }
+
+    .subtitle {
+        background: var(--accent-color);
+        color: var(--text-main);
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 5px 15px;
+        border-radius: 12px;
+        display: inline-block; /* 像貼紙一樣包裹起來 */
+        border: 2px solid var(--text-main);
+    }
+
+    section {
+        background: var(--card-bg);
+        padding: 35px;
+        border-radius: 30px; /* 圓滾滾卡片 */
+        box-shadow: var(--shadow);
+        border: 3px solid var(--text-main); /* 粗邊框 */
+        margin-bottom: 35px;
+        transition: transform 0.2s ease;
+    }
+
+    section:hover {
+        transform: scale(1.02); /* 移過去時會像果凍一樣微微放大 */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-top: 0;
+        margin-bottom: 25px;
+        color: var(--text-main);
+        display: inline-block;
+        background: linear-gradient(transparent 60%, var(--accent-secondary) 40%); /* 少女風手繪感底線 */
+    }
+
+    .info-p {
+        color: var(--text-muted);
+        margin-top: 0;
+    }
+
+    .experience-block {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 3px dotted var(--border-color); /* 點點分隔線 */
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .skill-item {
+        background: var(--bg-color);
+        border: 3px solid var(--text-main);
+        padding: 16px;
+        border-radius: 20px; /* 圓角膠囊感 */
+        text-align: center;
+        font-weight: bold;
+        font-size: 0.95rem;
+        box-shadow: 0 5px 0px 0px var(--border-color);
+        transition: all 0.2s ease;
+    }
+
+    .skill-item:hover {
+        background: var(--accent-secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 0px 0px var(--text-main);
+    }
+
+        .info-p { color: var(--text-muted); margin-top: 0; }
+
+        .experience-block {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-item {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <div class="card" id="resumeCard">
-      <aside class="side">
-        <div style="display:flex;flex-direction:column;align-items:flex-start">
-          <div class="avatar"><img src="picccc.JPG" alt="個人照片" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-          <div class="name">陳芸安</div>
-          <div class="role">主修：法律系</div>
+<div class="resume-container">
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 深色模式</button>
+        <h1>Chen-Yun-An. (,,・ω・,,)</h1>
+        <p class="subtitle">財經法律系</p>
+        <p class="subtitle">延畢生</p>
+        <p class="subtitle">貓派</p>
+        <p class="subtitle">學習日語中</p>
+    </header>
+
+    <section>
+        <h2>關於我 (About Me)</h2>
+        <img src="IMG_5462.jpg" alt="我的照片" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; margin-bottom: 15px; display: block;">
+        <p class="info-p">
+            我是一位積極主動、細心負責的人，重視做事的品質與效率。就讀法律相關科系期間，培養了邏輯分析、資料蒐集、法規閱讀與問題解決能力，也養成凡事求證、謹慎思考的工作態度。
+
+面對新的挑戰，我樂於學習並持續精進專業知識，對於陌生領域能快速吸收與適應。我善於整理資訊、歸納重點，並具備良好的溝通與團隊合作能力，能以耐心與責任感完成交辦事項。期待未來能將所學運用於實務工作，不斷累積經驗，為團隊創造價值，同時持續提升自己的專業能力。
+        </p>
+    </section>
+
+    <section>
+        <h2>教育背景 (Education)</h2>
+        <div class="experience-block">
+            <p><strong>亞洲大學 (Asia University) 法律學系</strong> | 2023 - 在學中</p>
+            <p class="info-p">暑假結束後就是大五生，爭取在大五上順利畢業，國考上岸或者回到事務所繼續案件研究，專注法學資訊與數位科技之跨領域整合。</p>
         </div>
+    </section>
 
-        <div style="margin-top:12px" class="info">
-          <div><strong>學號：</strong>112036127</div>
-          <div><strong>電話：</strong>09xx-xxx-xxx</div>
-          <div><strong>Email：</strong>annchen11783@gmail.com</div>
-          <div><strong>地址：</strong>台灣 • 台中市</div>
+    <section>
+        <h2>專案與活動經驗 (Projects)</h2>
+        <div class="experience-block">
+            <p><strong>校園生態守護行動專案 (SDG 15)</strong></p>
+            <p class="info-p">針對永續發展目標陸地生態進行調查，結合數位工具規劃生物多樣性與環境保護之數據成果。</p>
         </div>
-
-        <div class="section-title">技能</div>
-        <div class="skill">
-          <div class="chip">彈鋼琴</div>
-          <div class="chip">彈古箏</div>
-          <div class="chip">銷售</div>
-          <div class="chip">胡說八道</div>
-          <div class="chip">從天亮睡到天黑</div>
+        <div class="experience-block">
+            <p><strong>特殊教育志工服務</strong></p>
+            <p class="info-p">參與特教志工培訓課程，將弱勢群體關懷與實務心得轉化為實質服務行動。</p>
         </div>
+    </section>
 
-        <div class="section-title">語言</div>
-        <div class="skill">
-          <div class="chip">國語（母語）</div>
-          <div class="chip">英文（中等）</div>
+    <section>
+        <h2>核心技能 (Core Skills)</h2>
+        <div class="skills-grid">
+            <div class="skill-item">⚖️資料彙整與檔案管理</div>
+            <div class="skill-item">🛠️VsCode編輯器環境</div>
+            <div class="skill-item">🛠️appinventor行動應用</div>
+            <div class="skill-item">🍟麥當勞小員工</div>
+            <div class="skill-item">🎼彈鋼琴、彈古箏</div>
+            <div class="skill-item">💤很會睡覺</div>
+            
         </div>
+    </section>
+</div>
 
-        <div style="flex:1"></div>
-      </aside>
-
-      <main class="main">
-        <h2>自我介紹</h2>
-        <div class="lead">嗨～您好！我是財經法律系四年級的陳芸安，如果你看到的我的履歷表示你我有緣：）明年即將畢業了，請教授不要當我，謝謝教授～謝謝看到我履歷的你，求求給個漂亮分數！<br><br>在資訊流動快速的大數據時代，我不吝於學習新知。我個性獨立自主，偶能有標新立異的創新思維，希望能在這個職務中展現自我。我喜歡與人來往、結交新朋友，我能善用各個學習空間及資源並在多元的資訊交流中，精進相關領域的專業知識。
-對於各方面的有很大的興趣，有十足的好奇心，喜歡提出新的想法，嘗試新鮮事物，善用資訊方面蒐集資料、統整資料，耐心及細心的態度面對遇到的困境。
-
-        <div class="block">
-          <h2>教育背景</h2>
-          <div class="edu-item">
-            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
-              <div>
-                <div style="font-weight:700">亞洲科技大學 / 財經法律系</div>
-                <div class="muted">學士 • 2023 - 2026</div>
-                <div style="margin-top:8px;color:var(--muted);font-size:14px">主修課程：民法、刑法、民事訴訟法、刑事訴訟法、商標法、
-                  著作權法、電子商務法、強制執行法。</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-
-        <div class="block">
-          <h2>工作經驗</h2>
-          <div class="job-item">
-            <div style="font-weight:700">環海法律事務所</div>
-            <div class="muted">法務、特助</div>
-            <div style="margin-top:8px">1.所長、主管行程安排<br>2.所內會議安排<br>3.會計：零用金管理、應收應付帳務管理、能獨立銀行往來作業、協助報稅等事宜<br>4.人資：<br>(1)預約安排面試、協助部門主管面試（偶爾需獨立面試）<br>(2)員工人事資料維護：加、退保、團保事<br>(3)協助薪資、績效獎金、年終考核計算與發放。<br>(4)協助訂定員工績效考核、年終考核制度。<br>5.政府申請流程等相關領域，如：勞動部小型人力提升計畫、成立協會等<br>6.行政事項：客戶接待、收發文件、接聽電話、庶務性工作<br>7.跨部門溝通與協調、部門統合管理（營運部、法務部、律師部）1.收發信件。</br></div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            btn.innerText = '🌙 深色模式';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerText = '☀️ 淺色模式';
+        }
+    }
+</script>
 
 </body>
 </html>
